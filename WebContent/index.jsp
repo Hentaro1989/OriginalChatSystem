@@ -14,17 +14,4 @@
 	<input type="submit" id="submit" onclick="submit()" value="送信">
 </body>
 
-<script>
-	var cnt = 0;
-
-	function submit() {
-		var chat = $("<div></div>");
-		chat.attr("id", "comment" + cnt);
-		chat.attr("class", "comment");
-		chat.text($("#text").val());
-		$("body").append(chat);
-		$("#text").val("");
-		cnt++;
-	};
-</script>
 </html>
