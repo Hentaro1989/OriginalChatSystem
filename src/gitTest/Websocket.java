@@ -10,7 +10,7 @@ public class Websocket {
 
 	@OnMessage
 	public String onMessage(String message) {
-		System.out.println("onMessage来てるよー");
+		System.out.println("java:" + message);
 		return message;
 	}
 
