@@ -9,14 +9,8 @@ ws.onopen = function() {
 	console.log("websocket opened");
 };
 
-var cnt = 0;
 ws.onmessage = function(e) {
-	var chat = $("<div></div>");
-	chat.attr("id", "comment" + cnt);
-	chat.attr("class", "comment");
-	chat.text(e.data);
-	$("body").append(chat);
-	cnt++;
+	$("#log").prepend(e.data + "<br>");
 };
 
 ws.onerror = function() {
@@ -28,6 +22,7 @@ ws.onclose = function() {
 };
 
 function submit() {
+	if($("#text").val() == "" || $("#text").val() == "　" || $("#text").val() == " ")return; //入力が無かったりスペース１つの時は送信させない
 	ws.send($("#text").val());
 	$("#text").val("");
 };

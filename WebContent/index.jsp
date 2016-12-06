@@ -12,6 +12,7 @@
 <body>
 	<input type="text" id="text" value="">
 	<input type="submit" id="submit" onclick="submit()" value="送信">
+	<div id="log"></div>
 </body>
 
 </html>
