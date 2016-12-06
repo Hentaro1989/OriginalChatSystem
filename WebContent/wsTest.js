@@ -9,6 +9,7 @@ ws.onopen = function() {
 	console.log("websocket opened");
 };
 
+//Websocketからメッセージ受信時に動作
 ws.onmessage = function(e) {
 	$("#log").prepend(e.data + "<br>");
 };

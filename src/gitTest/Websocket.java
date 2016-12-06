@@ -14,25 +14,25 @@ public class Websocket {
 	private static HashSet<Session> sessions = new HashSet<Session>(); // 全てのセッションを保存するセット
 
 	@OnMessage
-	public void onMessage(String message, Session session) throws IOException {
+	synchronized public void onMessage(String message) throws IOException {
 
-		// シンクロナイズドブロックで同時処理を回避
-		synchronized (message) {
-			sessions.add(session); // セッションを追加
-			for (Session s : sessions) { // すべてのセッションに対しメッセージを送信
-				s.getBasicRemote().sendText(message);
-			}
+		for (Session s : sessions) { // すべてのセッションに対しメッセージを送信
+			s.getBasicRemote().sendText(message);
 		}
 
 	}
 
 	@OnOpen
-	public void onOpen() {
-
+	synchronized public void onOpen(Session session) {
+		synchronized (session) {
+			sessions.add(session); // セッションを追加
+			System.out.println("open  :  " + sessions.size());
+		}
 	}
 
 	@OnClose
-	public void onClose() {
-
+	synchronized public void onClose(Session session) {
+		sessions.remove(session); // セッションを破棄
+		System.out.println("close  :  " + sessions.size());
 	}
 }
