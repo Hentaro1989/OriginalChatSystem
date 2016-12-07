@@ -43,7 +43,7 @@ public class Websocket {
 
 	@OnError
 	synchronized public void onError(Throwable throwable){
-		System.out.println(throwable);
+		System.out.println(throwable.getCause());
 		System.out.println();
 	}
 }
