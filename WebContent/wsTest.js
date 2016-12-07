@@ -1,29 +1,41 @@
-//接続先URI
-var uri = "ws://localhost:8080/gitTest/endpoint";
+$(function() {
 
-// Websocketオブジェクト
-var ws = new WebSocket(uri);
+	var uri = "ws://localhost:8080/gitTest/endpoint"; //接続先URI
+	var ws = new WebSocket(uri); // Websocketオブジェクト
 
-// イベントハンドラ登録
-ws.onopen = function() {
-	console.log("websocket opened");
-};
+	// イベントハンドラ登録
+	ws.onopen = function() {
+		console.log("websocket opened");
+	};
 
-//Websocketからメッセージ受信時に動作
-ws.onmessage = function(e) {
-	$("#log").prepend(e.data + "<br>");
-};
+	// Websocketからメッセージ受信時に動作
+	ws.onmessage = function(e) {
+		$("#log").prepend(e.data + "<br>");
+	};
 
-ws.onerror = function() {
-	console.log("websocket error");
-};
+	ws.onerror = function() {
+		console.log("websocket error");
+	};
 
-ws.onclose = function() {
-	console.log("websocket closed");
-};
+	ws.onclose = function() {
+		console.log("websocket closed");
+	};
 
-function submit() {
-	if($("#text").val() == "" || $("#text").val() == "　" || $("#text").val() == " ")return; //入力が無かったりスペース１つの時は送信させない
-	ws.send($("#text").val());
-	$("#text").val("");
-};
+	$("#name").change(
+			function() {
+				if ($("#name").val() == "" || $("#name").val() == "　" || $("#name").val() == " ") return; // 名前の入力が無かったりスペース１つの時は送信ボタン活性せず
+				var yourName = $("#name").val();
+				var jsonName = {cmd : "name", name : yourName};
+				var strJsonName = JSON.stringify(jsonName);
+				$("#name").remove();
+				ws.send(strJsonName);
+				$("#submit").prop("disabled", false);
+	});
+
+	$("#submit").click(function() {
+		if ($("#text").val() == "" || $("#text").val() == "　" || $("#text").val() == " ") return; // 入力が無かったりスペース１つの時は送信させない
+		ws.send($("#text").val());
+		$("#text").val("");
+	});
+
+});

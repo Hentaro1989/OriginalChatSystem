@@ -5,13 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>index.jsp</title>
-<script  src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="./wsTest.js"></script>
 </head>
 
 <body>
-	<input type="text" id="text" value="">
-	<input type="submit" id="submit" onclick="submit()" value="送信">
+	<p>
+		<input type="text" id="name" value="" placeholder="名前を入力">
+	</p>
+	<p>
+		<input type="text" id="text" value="" placeholder="文章を入力">
+	</p>
+	<input type="submit" id="submit" value="送信" disabled="disabled">
 	<div id="log"></div>
 </body>
 
