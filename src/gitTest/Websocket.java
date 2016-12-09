@@ -23,9 +23,16 @@ public class Websocket {
 		HashMap<String, Object> json = new ObjectMapper().readValue(message,HashMap.class);
 		String cmd = (String) json.get("cmd");
 
-		//
-		//名前に関わる処理を記載予定
-		//
+		//JSONコマンドが「name」の時の処理
+		if(cmd.equals("name")){
+
+		}
+
+		//JSONコマンドが「chat」の時の処理
+		if(cmd.equals("chat")){
+
+		}
+
 
 		for (Session s : sessions) { // すべてのセッションに対しメッセージを送信
 			System.out.println(message);

@@ -34,7 +34,10 @@ $(function() {
 
 	$("#submit").click(function() {
 		if ($("#text").val() == "" || $("#text").val() == "　" || $("#text").val() == " ") return; // 入力が無かったりスペース１つの時は送信させない
-		ws.send($("#text").val());
+		var chatText = $("#text").val();
+		var jsonText = {cmd : "chat", text : chatText};
+		var strJsonText = JSON.stringify(jsonText);
+		ws.send(strJsonText);
 		$("#text").val("");
 	});
 
