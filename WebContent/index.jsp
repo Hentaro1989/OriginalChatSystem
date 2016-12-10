@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>index.jsp</title>
+<link rel="stylesheet" href="gitTest.css" type="text/css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="./wsTest.js"></script>
@@ -17,7 +18,9 @@
 	<p>
 		<input type="text" id="text" value="" placeholder="文章を入力">
 	</p>
-	<input type="submit" id="submit" value="送信" disabled="disabled">
+	<p>
+		<input type="submit" id="submit" value="送信" disabled="disabled">
+	</p>
 	<div id="log"></div>
 </body>
 

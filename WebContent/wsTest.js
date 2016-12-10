@@ -11,7 +11,7 @@ $(function() {
 
 	// Websocketからメッセージ受信時に動作
 	ws.onmessage = function(e) {
-		$("#log").prepend(e.data + "<br>");
+		$("#log").prepend("<p>" + e.data + "</p>");
 	};
 
 	ws.onerror = function() {
