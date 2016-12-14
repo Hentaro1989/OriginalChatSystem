@@ -1,7 +1,8 @@
 $(function() {
 
 	//var uri = "ws://192.168.11.10:8080/gitTest/endpoint"; //宅内Linuxサーバー用
-	var uri = "ws://192.168.11.2:8080/gitTest/endpoint"; //接続先URI
+	//var uri = "ws://192.168.11.2:8080/gitTest/endpoint"; //接続先URI
+	var uri = "ws://localhost:8080/gitTest/endpoint";
 	var ws = new WebSocket(uri); // Websocketオブジェクト
 
 	// イベントハンドラ登録
