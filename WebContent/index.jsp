@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>index.jsp</title>
-<link rel="stylesheet" href="gitTest.css" type="text/css" />
+<link rel="stylesheet" href="common.css" type="text/css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="./wsTest.js"></script>
+<script src="ws.js"></script>
 </head>
 
 <body>
