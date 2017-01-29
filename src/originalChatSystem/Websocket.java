@@ -35,7 +35,8 @@ public class Websocket {
 			String yourName = membersName.get(session); //セッションに紐づいている名前を取得
 			message = (String) json.get("text"); //JSONコマンド「text」に入力されて文字列を取得
 			for (Session s : sessions) { // すべてのセッションに対しメッセージを送信
-				s.getBasicRemote().sendText(yourName + "さん ： " + message);
+				// s.getBasicRemote().sendText(yourName + "さん ： " + message);
+				s.getBasicRemote().sendText("{\"name\":\"" + yourName + "\",\"text\":\"" + message + "\"}");
 			}
 			return;
 		}

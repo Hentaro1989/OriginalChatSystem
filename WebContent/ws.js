@@ -9,7 +9,9 @@ $(function() {
 
     // Websocketからメッセージ受信時に動作
     ws.onmessage = function(e) {
-        $("#log").prepend("<p>" + e.data + "</p>");
+        var chatData = JSON.parse(e.data);
+
+        $("#log").prepend("<p>" + chatData.name + "さん：" + chatData.text + "</p>");
     };
 
     ws.onerror = function() {
