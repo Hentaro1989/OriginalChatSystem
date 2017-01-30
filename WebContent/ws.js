@@ -10,8 +10,8 @@ $(function() {
     // Websocketからメッセージ受信時に動作
     ws.onmessage = function(e) {
         var chatData = JSON.parse(e.data);
-
-        $("#log").prepend("<p>" + chatData.name + "さん：" + chatData.text + "</p>");
+        var replacedText = chatData.text.replace(/https?:\/\/[\w/:%#$&?()~.=+-]+/, "<a href='$&'>$&</a>");
+        $("#log").prepend("<p>" + chatData.name + "さん：" + replacedText + "</p>");
     };
 
     ws.onerror = function() {
